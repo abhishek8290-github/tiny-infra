@@ -62,7 +62,7 @@ export interface ThemePreset {
 }
 
 const theme = {
-  defaultMode: "system" as ThemeMode,
+  defaultMode: "dark" as ThemeMode,
   defaultPreset: "ocean" as const,
 
   sidebar: {
