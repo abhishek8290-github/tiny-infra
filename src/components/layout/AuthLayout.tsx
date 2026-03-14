@@ -1,6 +1,45 @@
 import { Link } from "@tanstack/react-router";
 import theme from "@/theme.config";
 
+const authStyles = `
+.auth-shell {
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(200,241,53,0.07), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(200,241,53,0.06), transparent 30%),
+    #080808;
+}
+
+.auth-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(200,241,53,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,241,53,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 20%, black 25%, transparent 80%);
+  z-index: 0;
+}
+
+.auth-shell::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.auth-layer {
+  position: relative;
+  z-index: 1;
+}
+`;
+
 // ============================================================
 // AuthLayout
 // Clean, centered layout used for sign-in and sign-up pages.
@@ -15,11 +54,12 @@ interface AuthLayoutProps {
 
 export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
   return (
-    <div className="min-h-screen grid lg:grid-cols-2 bg-muted/30">
+    <div className="auth-shell grid lg:grid-cols-2">
+      <style>{authStyles}</style>
 
       {/* ---- Left Panel: Branding ---- */}
-      <div className="hidden lg:flex flex-col justify-between p-10 bg-card border-r border-border relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.08),transparent_40%),radial-gradient(circle_at_bottom_left,hsl(var(--accent-foreground)/0.05),transparent_45%)]" />
+      <div className="auth-layer hidden lg:flex flex-col justify-between p-10 bg-card/50 border-r border-border relative overflow-hidden backdrop-blur-xl">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary)/0.18),transparent_42%),radial-gradient(circle_at_bottom_left,hsl(var(--accent)/0.14),transparent_48%)]" />
 
         {/* Logo */}
         <Link to="/" className="relative z-10 flex items-center gap-2">
@@ -46,7 +86,7 @@ export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
       </div>
 
       {/* ---- Right Panel: Auth Form ---- */}
-      <div className="flex flex-col items-center justify-center p-6 lg:p-10">
+      <div className="auth-layer flex flex-col items-center justify-center p-6 lg:p-10">
 
         {/* Mobile logo */}
         <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
@@ -56,7 +96,7 @@ export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
           </span>
         </Link>
 
-        <div className="w-full max-w-sm rounded-2xl border border-border/80 bg-card p-6 shadow-elevated">
+        <div className="w-full max-w-sm rounded-2xl border border-border/80 bg-card/85 backdrop-blur-xl p-6 shadow-elevated">
           {/* Heading */}
           <div className="space-y-1 mb-6">
             <h1 className="text-2xl font-display font-semibold text-foreground">
