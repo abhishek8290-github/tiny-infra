@@ -1,0 +1,7 @@
+.env
+postman/
+dist/
+deploy.sh
+ios/
+.vscode/
+node_modules/
