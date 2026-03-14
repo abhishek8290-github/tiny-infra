@@ -13,6 +13,7 @@ import { useSidebar } from "@/hooks/useSidebar";
 import { cn } from "@/lib/utils";
 import { APP_NAV_ITEMS } from "@/components/layout/nav-items";
 import theme from "@/theme.config";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 const SIDEBAR_WIDTH_STORAGE_KEY = "app-sidebar-width";
 const MIN_SIDEBAR_WIDTH = 208;
 const MAX_SIDEBAR_WIDTH = 420;
@@ -123,16 +124,22 @@ export function Sidebar() {
             to="/dashboard"
             className="flex items-center gap-2 overflow-hidden"
           >
-            <div className="h-7 w-7 rounded-lg bg-sidebar-primary shrink-0 shadow-card" />
-            <span className="font-display font-semibold text-sidebar-foreground truncate">
-              {theme.app.name}
-            </span>
+            <BrandLogo
+              size="sm"
+              textClassName="text-sidebar-foreground"
+              accentClassName="text-sidebar-primary"
+              dotClassName="bg-sidebar-primary"
+            />
           </Link>
         )}
 
         {collapsed && (
           <Link to="/dashboard">
-            <div className="h-7 w-7 rounded-lg bg-sidebar-primary shadow-card" />
+            <BrandLogo
+              size="sm"
+              showText={false}
+              dotClassName="bg-sidebar-primary"
+            />
           </Link>
         )}
 

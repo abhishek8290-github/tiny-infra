@@ -7,6 +7,10 @@ import { SignInPage } from "@/pages/SignInPage";
 import { SignUpPage } from "@/pages/SignUpPage";
 import { SsoCallbackPage } from "@/pages/SsoCallbackPage";
 import { LandingPage } from "@/pages/LandingPage";
+import { DomainsPage } from "@/pages/DomainsPage";
+import { CLIPage } from "@/pages/CLIPage";
+import { PricingPage } from "@/pages/PricingPage";
+import { DocsPage } from "@/pages/DocsPage";
 import { DashboardPage } from "@/pages/DashboardPage";
 import { ProjectsPage } from "@/pages/ProjectsPage";
 import { SettingsPage } from "@/pages/SettingsPage";
@@ -21,7 +25,40 @@ const rootRoute = createRootRoute({
 });
 
 // ============================================================
-// Auth Routes — Public
+// Public Routes
+// ============================================================
+const indexRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/",
+  component: LandingPage,
+});
+
+const domainsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/domains",
+  component: DomainsPage,
+});
+
+const cliRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/cli",
+  component: CLIPage,
+});
+
+const pricingRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/pricing",
+  component: PricingPage,
+});
+
+const docsRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/docs",
+  component: DocsPage,
+});
+
+// ============================================================
+// Auth Routes
 // ============================================================
 const signInRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -43,7 +80,6 @@ const ssoCallbackRoute = createRoute({
 
 // ============================================================
 // Protected Layout Route
-// All app routes live inside this — sidebar + header
 // ============================================================
 const appLayoutRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -76,18 +112,15 @@ const settingsRoute = createRoute({
   component: SettingsPage,
 });
 
-// Public landing page route
-const indexRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/",
-  component: LandingPage,
-});
-
 // ============================================================
 // Route Tree
 // ============================================================
 export const routeTree = rootRoute.addChildren([
   indexRoute,
+  domainsRoute,
+  cliRoute,
+  pricingRoute,
+  docsRoute,
   signInRoute,
   signUpRoute,
   ssoCallbackRoute,

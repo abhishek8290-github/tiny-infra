@@ -72,8 +72,8 @@ const theme = {
   },
 
   app: {
-    name: "MyApp",
-    description: "Your app description here",
+    name: "deployto",
+    description: "your domain. your way.",
     logo: "/logo.svg",
   },
 

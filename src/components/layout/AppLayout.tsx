@@ -4,7 +4,7 @@ import { APP_NAV_ITEMS } from "@/components/layout/nav-items";
 import { SidebarProvider } from "@/hooks/useSidebar";
 import { useAuth } from "@/hooks/useAuth";
 import { cn } from "@/lib/utils";
-import theme from "@/theme.config";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 
 // ============================================================
 // AppLayout
@@ -29,10 +29,7 @@ export function AppLayout() {
         >
           <div className="h-full px-4 flex items-center justify-between">
             <Link to="/dashboard" className="flex items-center gap-2 overflow-hidden">
-              <div className="h-7 w-7 rounded-lg bg-primary shrink-0 shadow-card" />
-              <span className="font-display font-semibold text-foreground truncate">
-                {theme.app.name}
-              </span>
+              <BrandLogo size="sm" />
             </Link>
 
             <div className="shrink-0">

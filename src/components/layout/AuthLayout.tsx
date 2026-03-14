@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import theme from "@/theme.config";
+import { BrandLogo } from "@/components/shared/BrandLogo";
 
 const authStyles = `
 .auth-shell {
@@ -63,10 +64,7 @@ export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
 
         {/* Logo */}
         <Link to="/" className="relative z-10 flex items-center gap-2">
-          <div className="h-8 w-8 rounded-xl bg-primary shadow-card" />
-          <span className="font-display font-semibold text-foreground">
-            {theme.app.name}
-          </span>
+          <BrandLogo />
         </Link>
 
         {/* Center quote / value prop */}
@@ -75,7 +73,7 @@ export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
             "The best tool for building your next idea — fast."
           </blockquote>
           <p className="text-muted-foreground text-sm">
-            — Built with this starter kit
+            - Built for developers who hate config files.
           </p>
         </div>
 
@@ -90,10 +88,7 @@ export function AuthLayout({ children, heading, subheading }: AuthLayoutProps) {
 
         {/* Mobile logo */}
         <Link to="/" className="flex items-center gap-2 mb-8 lg:hidden">
-          <div className="h-7 w-7 rounded-lg bg-primary shadow-card" />
-          <span className="font-display font-semibold text-foreground">
-            {theme.app.name}
-          </span>
+          <BrandLogo size="sm" />
         </Link>
 
         <div className="w-full max-w-sm rounded-2xl border border-border/80 bg-card/85 backdrop-blur-xl p-6 shadow-elevated">

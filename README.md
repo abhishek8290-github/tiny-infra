@@ -1,4 +1,4 @@
-# React Starter Kit
+# ai infra 
 
 A reusable, configurable React + Vite SaaS starter. Clone it, change 5 things, ship a new product.
 

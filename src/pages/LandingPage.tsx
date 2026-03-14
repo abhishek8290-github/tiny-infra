@@ -517,10 +517,10 @@ export function LandingPage() {
       <nav className="dt-nav" ref={navRef}>
         <div className="dt-logo"><div className="dt-logo-dot" />deploy<span>to</span></div>
         <ul>
-          <li><a href="#">Domains</a></li>
-          <li><a href="#">CLI</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">Docs</a></li>
+          <li><Link to="/domains">Domains</Link></li>
+          <li><Link to="/cli">CLI</Link></li>
+          <li><Link to="/pricing">Pricing</Link></li>
+          <li><Link to="/docs">Docs</Link></li>
           <li><Link to="/sign-in" className="dt-nav-cta">Get Started →</Link></li>
         </ul>
       </nav>
